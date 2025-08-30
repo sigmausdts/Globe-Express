@@ -1837,3 +1837,11 @@ ai_js_code = true;
         });
     });
 </script>
+<script>
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey && ["u","s","c"].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+</script>
