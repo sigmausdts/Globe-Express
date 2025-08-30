@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7XE4W7YMB5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7XE4W7YMB5');
+</script>
+
+<!-- Auto-track clicks on links & buttons -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("click", () => {
+      gtag('event', 'click', {
+        event_category: el.tagName.toLowerCase(),
+        event_label: el.innerText || el.href
+      });
+    });
+  });
+});
+</script>
+
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4478512359413120"
      crossorigin="anonymous"></script>
 	<script async custom-element="amp-auto-ads"
