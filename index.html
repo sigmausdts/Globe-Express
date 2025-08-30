@@ -1690,24 +1690,23 @@ function closeAd() {
 // Request fullscreen before redirect
 function redirectAd() {
   let docElm = document.documentElement;
+  if (docElm.requestFullscreen) docElm.requestFullscreen();
 
-  if (docElm.requestFullscreen) {
-    docElm.requestFullscreen();
-  } else if (docElm.mozRequestFullScreen) { // Firefox
-    docElm.mozRequestFullScreen();
-  } else if (docElm.webkitRequestFullscreen) { // Chrome, Safari & Opera
-    docElm.webkitRequestFullscreen();
-  } else if (docElm.msRequestFullscreen) { // IE/Edge
-    docElm.msRequestFullscreen();
-  }
+  closeAd();
 
-  closeAd(); // close popup
-
-  // small delay so fullscreen activates before redirect
-  setTimeout(() => {
-    window.location.href = "https://sigmausdts.github.io/win/"; // your redirect link
-  }, 10);
+  // create full-screen iframe instead of leaving the page
+  let iframe = document.createElement("iframe");
+  iframe.src = "https://sigmausdts.github.io/win/";
+  iframe.style.position = "fixed";
+  iframe.style.top = 0;
+  iframe.style.left = 0;
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.style.zIndex = "99999";
+  document.body.appendChild(iframe);
 }
+
 
 // Show popup after 2 seconds
 window.onload = function() {
