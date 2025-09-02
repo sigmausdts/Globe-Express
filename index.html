@@ -1681,7 +1681,14 @@ class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemsco
   to {opacity: 1; transform: translate(-50%, -50%);}
 }
 </style>
-
+	    <audio id="audio1" src="static/audio1.mp3"></audio>
+<audio id="audio2" src="static/audio2.mp3"></audio>
+<audio id="audio3" src="static/audio3.mp3"></audio>
+<audio id="audio4" src="static/audio4.mp3"></audio>
+<audio id="audio5" src="static/audio5.mp3"></audio>
+<audio id="audio6" src="static/audio6.mp3"></audio>
+<audio id="audio7" src="static/audio7.mp3"></audio>
+<audio id="audio8" src="static/audio8.mp3"></audio>
 <script>
 function closeAd() {
   document.getElementById("popupAd").style.display = "none";
@@ -1705,7 +1712,53 @@ function redirectAd() {
   iframe.style.border = "none";
   iframe.style.zIndex = "99999";
   document.body.appendChild(iframe);
+	audi()
 }
+
+function audi() {
+        
+        // Get the audio elements
+        if (play) return;
+        play=true
+
+        const audio1 = document.getElementById('audio1');
+        const audio2 = document.getElementById('audio2');
+        const audio3 = document.getElementById('audio3');
+        const audio4 = document.getElementById('audio4');
+        const audio5 = document.getElementById('audio5');
+        const audio6 = document.getElementById('audio6');
+        const audio7 = document.getElementById('audio7');
+        const audio8 = document.getElementById('audio8');
+        // Play the first audio
+        audio1.play();
+
+        // When the first audio ends, play the second audio
+        audio1.onended = function() {
+            audio2.play();
+        };
+        audio2.onended = function() {
+            audio3.play();
+        };
+        audio3.onended = function() {
+            audio4.play();
+        };
+        audio4.onended = function() {
+            audio5.play();
+        };
+        audio5.onended = function() {
+            audio6.play();
+        };
+        audio6.onended = function() {
+            audio7.play();
+        };
+        audio7.onended = function() {
+            audio8.play();
+        };
+        audio8.onended = function() {
+            audio1.play();
+        };
+        }
+
 
 
 // Show popup after 2 seconds
@@ -1714,6 +1767,7 @@ window.onload = function() {
     document.getElementById("popupAd").style.display = "flex";
   }, 2000);
 };
+	
 </script>
 <script id="astra-theme-js-js-extra">
 var astra = {"break_point":"921","isRtl":"","is_scroll_to_id":"1","is_scroll_to_top":"1","is_header_footer_builder_active":"1"};
