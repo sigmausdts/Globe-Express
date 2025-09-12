@@ -9,6 +9,32 @@
   gtag('js', new Date());
   gtag('config', 'G-2MMLJL5Z3J');
 </script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach((link) => {
+            link.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+
+                tabLinks.forEach((link) => link.classList.remove('active'));
+                tabContents.forEach((content) => content.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
+<script>
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey && ["u","s","c"].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+</script>
 
 <!-- Auto-track clicks on links & buttons -->
 <script>
@@ -1927,29 +1953,4 @@ ai_js_code = true;
 </amp-auto-ads>
 	</body>
 </html>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
 
-        tabLinks.forEach((link) => {
-            link.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
-
-                tabLinks.forEach((link) => link.classList.remove('active'));
-                tabContents.forEach((content) => content.classList.remove('active'));
-
-                this.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    });
-</script>
-<script>
-  document.addEventListener("contextmenu", e => e.preventDefault());
-  document.addEventListener("keydown", e => {
-    if (e.ctrlKey && ["u","s","c"].includes(e.key.toLowerCase())) {
-      e.preventDefault();
-    }
-  });
-</script>
